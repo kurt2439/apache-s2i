@@ -1,9 +1,0 @@
-FROM centos:7
-USER root
-RUN yum -y install httpd
-RUN sed -i 's/Listen 80/Listen 8080/' /etc/httpd/conf/httpd.conf
-RUN echo test > /var/www/html/index.html
-RUN chmod -R a+rwx /run/httpd /etc/httpd/logs
-USER default
-EXPOSE 8080
-CMD /usr/bin/httpd -DFOREGROUND
